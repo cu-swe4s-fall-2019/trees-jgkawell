@@ -40,8 +40,8 @@ class TestBinaryTree(unittest.TestCase):
 
         entries = {}
         for i in range(0, 100):
-            key = random.randint(-1000,1000)
-            value = random.randint(-1000,1000)
+            key = random.randint(-1000, 1000)
+            value = random.randint(-1000, 1000)
             tree.insert(key, value)
 
         for key, value in entries.items():

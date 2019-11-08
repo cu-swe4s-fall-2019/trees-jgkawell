@@ -14,3 +14,4 @@ before_install:
 
 script:
     - pycodestyle *.py
+    - python test_binary_tree.py
