@@ -8,14 +8,13 @@ class Node:
 
 class BinaryTree:
 
-    def __init__(self, key, value=None):
+    def __init__(self):
         self.root = None
-        self.root = self.insert(key, value)
 
     def insert(self, key, value=None):
         # Simple insert call for users
         if isinstance(key, int):
-            return self.insert_by_value(self.root, key, value)
+            self.root = self.insert_by_value(self.root, key, value)
         else:
             raise TypeError("Keys must be integers")
 

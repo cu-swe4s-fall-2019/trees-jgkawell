@@ -5,7 +5,8 @@ import random
 
 class TestBinaryTree(unittest.TestCase):
     def test_basic_add(self):
-        tree = binary_tree.BinaryTree(10, 'a')
+        tree = binary_tree.BinaryTree()
+        tree.insert(10, 'a')
         tree.insert(15, 'b')
         tree.insert(-5, 'c')
         tree.insert(12, 'd')
@@ -15,7 +16,8 @@ class TestBinaryTree(unittest.TestCase):
         self.assertEqual(tree.root.right.left.key, 12)
 
     def test_duplicate_insert(self):
-        tree = binary_tree.BinaryTree(10, 'a')
+        tree = binary_tree.BinaryTree()
+        tree.insert(10, 'a')
         tree.insert(15, 'b')
         tree.insert(5, 'c')
         tree.insert(12, 'd')
@@ -24,7 +26,8 @@ class TestBinaryTree(unittest.TestCase):
         self.assertEqual(tree.root.right.left.value, 'd')
 
     def test_non_num_key_on_insert(self):
-        tree = binary_tree.BinaryTree(10, 'a')
+        tree = binary_tree.BinaryTree()
+        tree.insert(10, 'a')
         tree.insert(15, 'b')
         tree.insert(5, 'c')
         tree.insert(12, 'd')
@@ -36,7 +39,8 @@ class TestBinaryTree(unittest.TestCase):
             str(ex.exception), "Keys must be integers")
 
     def test_random_insert_and_search(self):
-        tree = binary_tree.BinaryTree(1, 'a')
+        tree = binary_tree.BinaryTree()
+        tree.insert(1, 'a')
 
         entries = {}
         for i in range(0, 100):
@@ -48,7 +52,8 @@ class TestBinaryTree(unittest.TestCase):
             self.assertEqual(tree.search(key), value)
 
     def test_non_num_key_on_search(self):
-        tree = binary_tree.BinaryTree(10, 'a')
+        tree = binary_tree.BinaryTree()
+        tree.insert(10, 'a')
         tree.insert(15, 'b')
         tree.insert(5, 'c')
         tree.insert(12, 'd')
