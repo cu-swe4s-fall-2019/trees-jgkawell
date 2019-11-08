@@ -37,10 +37,45 @@ class BinaryTree:
         # Return the updated node
         return node
 
+    def search(self, key):
+        # Simple search call for users
+        if isinstance(key, int):
+            return self.search_by_value(self.root, key)
+        else:
+            raise TypeError("Keys must be integers")
 
-def insert(root, key, value=None):
-    return root
+    def search_by_value(self, node, key):
+        if node is None:
+            # Couldn't find key, return None
+            value = None
+        elif node.key == key:
+            # Found key, return value
+            value = node.value
+        else:
+            if key < node.key:
+                # Recursively search left
+                value = self.search_by_value(node.left, key)
+            else:
+                # Recursively search right
+                value = self.search_by_value(node.right, key)
+
+        # Return value to user
+        return value
 
 
-def search(root, key):
-    return None
+if __name__ == '__main__':
+
+    tree = BinaryTree(10, '-')
+    tree.insert(9, 'a')
+    tree.insert(15, 'b')
+    tree.insert(11, 'c')
+
+    print(tree.root.key, tree.root.value)
+    print(tree.root.left.key, tree.root.left.value)
+    print(tree.root.right.left.key, tree.root.right.left.value)
+
+    print(tree.search(10))
+    print(tree.search(9))
+    print(tree.search(15))
+    print(tree.search(11))
+    print(tree.search(1))
